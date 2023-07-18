@@ -15,17 +15,21 @@
         <h1 class="text-5xl font-semibold text-green-300 text-center">Timer Timeout</h1>
         <hr class="w-[90%] mr-auto ml-auto"><br>
         <form class="w-full text-center duration-200">
-            <div class="w-full flex justify-center flex-wrap mb-10"><input type=number id=inputJam
-                    class="text-black text-2xl p-1 h-10 m-2 focus:outline-green-600 rounded" min=0 max=99
-                    placeholder=Jam required> <input type=number id=inputMenit
+            <div class="w-full flex justify-center flex-wrap mb-10">
+                <input type=number id=inputJam class="text-black text-2xl p-1 h-10 m-2 focus:outline-green-600 rounded"
+                    min=0 max=99 placeholder=Jam required>
+                <input type=number id=inputMenit
                     class="text-black text-2xl h-10 p-1 m-2 focus:outline-green-600 rounded" min=0 max=60
-                    placeholder=Menit required> <input type=number id=inputDetik
+                    placeholder=Menit required>
+                <input type=number id=inputDetik
                     class="text-black text-2xl h-10 m-2 p-1 focus:outline-green-600 rounded" min=1 max=60
-                    placeholder=Detik required></div><input type=submit value="ATUR WAKTU"
+                    placeholder=Detik required>
+            </div>
+            <input type=submit value="ATUR WAKTU"
                 class="biruNavigasi w-60 h-14 rounded-md cursor-pointer hover:bg-blue-400" id=aturWaktu>
         </form>
         <div class="ml-[200%] overflow-hidden duration-200" id=timer>
-            <div class="w-full text-center mb-3">
+            <div class="w-full text-center mb-5">
                 <h1 class="text-4xl font-medium text-center">Waktu Yg di Pilih:</h1><br><span id=tumbal1
                     class="text-3xl text-red-500 font-semibold text-center"></span> <span id=tumbal2
                     class="text-3xl text-green-500 font-semibold text-center ml-2 mr-2"></span> <span id=tumbal3
@@ -37,8 +41,17 @@
                 <p class="font-bold text-center text-green-500 m-5" id=menit>
                 <p class="font-bold text-center text-blue-500 m-5" id=detik>
             </div>
-            <div class="w-full text-center mt-5"><button
-                    class="w-[40%] h-20 biruNavigasi rounded text-2xl">MULAI</button></div>
+            <div class="w-full text-center mt-5">
+                <button class="w-[40%] h-20 biruNavigasi rounded text-2xl">MULAI</button>
+            </div>
+            <div class="flex justify-center">
+                <span
+                    class="cursor-pointer biruNavigasi w-48 flex justify-center items-center rounded active:bg-blue-400 m-3 text-center h-10"
+                    id="backTimer">⬅️ Atur Ulang</span>
+                <span
+                    class="cursor-pointer biruNavigasi w-48 hidden justify-center items-center rounded active:bg-blue-400 m-3 text-center h-10"
+                    id="stopOrResume">Stop</span>
+            </div>
         </div>
         <footer></footer>
     </section>

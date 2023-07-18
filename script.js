@@ -1,5 +1,6 @@
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
+    document.querySelector("button").style.display = "inline-block";
     document.getElementById("showTimer").style.display = "none";
     document.getElementById("timer").style.marginLeft = "0%";
     document.getElementById("timer").style.marginTop = "-130px";
@@ -8,6 +9,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     document.getElementById("tumbal2").innerText = document.getElementById("inputMenit").value + " Menit,";
     document.getElementById("tumbal3").innerText = document.getElementById("inputDetik").value + " Detik.";
 });
+
 
 document.querySelector("button").addEventListener("click", () => {
     document.querySelector("button").style.display = "none";
@@ -21,6 +23,7 @@ document.querySelector("button").addEventListener("click", () => {
     Jam.innerHTML = parseInt(jam) + ",";
     menit.innerHTML = parseInt(min) + ",";
     detik.innerHTML = parseInt(det);
+    let waktuInterval = 1000;
     function mundur() {
         det -= 1;
         if (det === -1) {
@@ -42,9 +45,16 @@ document.querySelector("button").addEventListener("click", () => {
         menit.innerHTML = parseInt(min) + ",";
         detik.innerHTML = parseInt(det);
     }
-    const stopInterval = setInterval(mundur, 1000)
+    let stopInterval = setInterval(mundur, waktuInterval)
+    document.getElementById("backTimer").addEventListener("click", () => {
+        // clearInterval(stopInterval);
+        document.getElementById("timer").style.marginLeft = "200%";
+        document.querySelector("form").style.marginLeft = "0%";
+        jam = 0;
+        min = 0;
+        det = 1;
+    })
 });
-
 
 // style footer
 const foo = document.querySelector("footer");
@@ -57,4 +67,4 @@ foo.style.left = "50%";
 foo.style.bottom = "0%";
 foo.style.transform = "translateX(-50%)";
 foo.style.borderTop = "2px solid yellow";
-foo.style.width = "95%"
+foo.style.width = "95%";
