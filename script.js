@@ -4,8 +4,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
     document.querySelector("button").style.display = "inline-block";
     document.getElementById("showTimer").style.display = "none";
     document.getElementById("timer").style.marginLeft = "0%";
-    document.getElementById("timer").style.marginTop = "-130px";
+    document.getElementById("timer").style.marginTop = "-230px";
     document.querySelector("form").style.marginLeft = "-200%";
+    document.getElementById("showKeterangan").innerText = document.getElementById("keterangan").value;
     document.getElementById("tumbal1").innerText = document.getElementById("inputJam").value + " Jam,";
     document.getElementById("tumbal2").innerText = document.getElementById("inputMenit").value + " Menit,";
     document.getElementById("tumbal3").innerText = document.getElementById("inputDetik").value + " Detik.";
