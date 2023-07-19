@@ -74,7 +74,6 @@ document.querySelector("button").addEventListener("click", () => {
         menit.innerHTML = parseInt(min) + ",";
         detik.innerHTML = parseInt(det);
     }
-    audio.pause(); // posisi harus di bawah (jangan di rubah)
 }); // End
 
 // klik akan mengatur ualng waktu
