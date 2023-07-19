@@ -11,6 +11,12 @@ document.querySelector("form").addEventListener("submit", function (event) {
     document.getElementById("tumbal1").innerText = document.getElementById("inputJam").value + " Jam,";
     document.getElementById("tumbal2").innerText = document.getElementById("inputMenit").value + " Menit,";
     document.getElementById("tumbal3").innerText = document.getElementById("inputDetik").value + " Detik.";
+    if (document.getElementById("inputJam").value == 0 && document.getElementById("inputMenit").value == 0 && document.getElementById("inputDetik").value == 0) {
+        alert("Jangan 0 Semua, paling minimal 1 detik");
+        document.querySelector("form").style.marginLeft = "0%";
+        document.getElementById("timer").style.marginLeft = "200%";
+        document.querySelector("button").style.display = "none";
+    }
 }); // End
 
 // variabel kosong
