@@ -1,3 +1,4 @@
+// klik setelah mengatur waktu
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
     document.querySelector("button").style.display = "inline-block";
@@ -8,22 +9,28 @@ document.querySelector("form").addEventListener("submit", function (event) {
     document.getElementById("tumbal1").innerText = document.getElementById("inputJam").value + " Jam,";
     document.getElementById("tumbal2").innerText = document.getElementById("inputMenit").value + " Menit,";
     document.getElementById("tumbal3").innerText = document.getElementById("inputDetik").value + " Detik.";
-});
+}); // End
 
+// variabel kosong
+let jam;
+let min;
+let det;
+let stopInterval;
+// End
 
+// klik akan memulai waktu mundur
 document.querySelector("button").addEventListener("click", () => {
     document.querySelector("button").style.display = "none";
     document.getElementById("showTimer").style.display = "flex";
-    let jam = document.querySelector("#inputJam").value;
-    let min = document.querySelector("#inputMenit").value;
-    let det = document.querySelector("#inputDetik").value;
+    jam = document.querySelector("#inputJam").value;
+    min = document.querySelector("#inputMenit").value;
+    det = document.querySelector("#inputDetik").value;
     let Jam = document.querySelector("#jam")
     let menit = document.querySelector("#menit")
     let detik = document.querySelector("#detik")
     Jam.innerHTML = parseInt(jam) + ",";
     menit.innerHTML = parseInt(min) + ",";
     detik.innerHTML = parseInt(det);
-    let waktuInterval = 1000;
     function mundur() {
         det -= 1;
         if (det === -1) {
@@ -45,16 +52,19 @@ document.querySelector("button").addEventListener("click", () => {
         menit.innerHTML = parseInt(min) + ",";
         detik.innerHTML = parseInt(det);
     }
-    let stopInterval = setInterval(mundur, waktuInterval)
-    document.getElementById("backTimer").addEventListener("click", () => {
-        // clearInterval(stopInterval);
-        document.getElementById("timer").style.marginLeft = "200%";
-        document.querySelector("form").style.marginLeft = "0%";
-        jam = 0;
-        min = 0;
-        det = 1;
-    })
-});
+    stopInterval = setInterval(mundur, 1000);
+}); // End
+
+// klik akan mengatur ualng waktu
+document.getElementById("backTimer").addEventListener("click", () => {
+    // clearInterval(stopInterval);
+    document.getElementById("timer").style.marginLeft = "200%";
+    document.querySelector("form").style.marginLeft = "0%";
+    jam = 0;
+    min = 0;
+    det = 1;
+}); // End
+
 
 // style footer
 const foo = document.querySelector("footer");
@@ -68,3 +78,4 @@ foo.style.bottom = "0%";
 foo.style.transform = "translateX(-50%)";
 foo.style.borderTop = "2px solid yellow";
 foo.style.width = "95%";
+// End
