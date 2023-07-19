@@ -6,6 +6,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     document.getElementById("timer").style.marginLeft = "0%";
     document.getElementById("timer").style.marginTop = "-230px";
     document.querySelector("form").style.marginLeft = "-200%";
+    document.getElementById("numVol").innerText = document.getElementById("ranged").value;
     document.getElementById("showKeterangan").innerText = document.getElementById("keterangan").value;
     document.getElementById("tumbal1").innerText = document.getElementById("inputJam").value + " Jam,";
     document.getElementById("tumbal2").innerText = document.getElementById("inputMenit").value + " Menit,";
@@ -66,6 +67,7 @@ document.querySelector("button").addEventListener("click", () => {
             video.pause();
             audio = new Audio("./timeout.wav");
             audio.play();
+            audio.volume = document.getElementById("ranged").value;
             audio.addEventListener('ended', function () {
                 audio.currentTime = 0; // Mengatur waktu pemutaran kembali ke awal
                 audio.play();
@@ -84,6 +86,29 @@ document.getElementById("backTimer").addEventListener("click", () => {
     document.querySelector("form").style.marginLeft = "0%";
 }); // End
 
+
+// membuka setting
+document.getElementById("setting").addEventListener("click", () => {
+    document.getElementById("settingPage").style.top = "50%"
+})
+
+// atur volume
+document.getElementById("ranged").addEventListener("input", () => {
+    document.getElementById("numVol").innerText = document.getElementById("ranged").value;
+    localStorage.setItem('rangeValue', document.getElementById("ranged").value);
+})
+
+window.addEventListener('load', function () {
+    var rangeValue = localStorage.getItem('rangeValue');
+    if (rangeValue) {
+        document.getElementById("ranged").value = rangeValue;
+    }
+});
+
+// tutup setting
+document.getElementById("tutupSet").addEventListener("click", () => {
+    document.getElementById("settingPage").style.top = "-200%"
+})
 
 // mematikan suara saat timeout
 document.getElementById("buttonStopMusic").addEventListener("click", () => {
