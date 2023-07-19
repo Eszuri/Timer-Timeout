@@ -29,7 +29,6 @@ let video;
 document.querySelector("button").addEventListener("click", () => {
     video = document.querySelector("video");
     video.play();
-    video.volume = 0;
     video.addEventListener("ended", function () {
         video.currentTime = 0;
         video.play();
