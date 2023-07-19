@@ -13,9 +13,13 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 // variabel kosong
 let jam;
+let Jam;
+let menit;
+let detik;
 let min;
 let det;
 let stopInterval;
+let audio;
 // End
 
 // klik akan memulai waktu mundur
@@ -25,12 +29,13 @@ document.querySelector("button").addEventListener("click", () => {
     jam = document.querySelector("#inputJam").value;
     min = document.querySelector("#inputMenit").value;
     det = document.querySelector("#inputDetik").value;
-    let Jam = document.querySelector("#jam")
-    let menit = document.querySelector("#menit")
-    let detik = document.querySelector("#detik")
+    Jam = document.querySelector("#jam")
+    menit = document.querySelector("#menit")
+    detik = document.querySelector("#detik")
     Jam.innerHTML = parseInt(jam) + ",";
     menit.innerHTML = parseInt(min) + ",";
     detik.innerHTML = parseInt(det);
+    stopInterval = setInterval(mundur, 1000);
     function mundur() {
         det -= 1;
         if (det === -1) {
@@ -46,25 +51,38 @@ document.querySelector("button").addEventListener("click", () => {
         }
         if (jam < 1 && min < 1 && det < 1) {
             document.querySelector("button").style.display = "inline-block";
-            clearInterval(stopInterval)
+            document.querySelector("button").innerText = "MULAI ULANG";
+            document.getElementById("stopMusic").style.top = "0%";
+            clearInterval(stopInterval);
+            audio = new Audio("./timeout.wav");
+            audio.play();
+            audio.addEventListener('ended', function () {
+                audio.currentTime = 0; // Mengatur waktu pemutaran kembali ke awal
+                audio.play();
+            });
         }
         Jam.innerHTML = parseInt(jam) + ",";
         menit.innerHTML = parseInt(min) + ",";
         detik.innerHTML = parseInt(det);
     }
-    stopInterval = setInterval(mundur, 1000);
+    audio.pause(); // posisi harus di bawah (jangan di rubah)
 }); // End
 
 // klik akan mengatur ualng waktu
 document.getElementById("backTimer").addEventListener("click", () => {
-    // clearInterval(stopInterval);
+    clearInterval(stopInterval);
     document.getElementById("timer").style.marginLeft = "200%";
     document.querySelector("form").style.marginLeft = "0%";
-    jam = 0;
-    min = 0;
-    det = 1;
 }); // End
 
+
+// mematikan suara saat timeout
+document.getElementById("buttonStopMusic").addEventListener("click", () => {
+    audio.pause();
+    audio.currentTime = 0;
+    document.getElementById("stopMusic").style.top = "-200%";
+    document.getElementById("showTimer").style.display = "none";
+})
 
 // style footer
 const foo = document.querySelector("footer");
