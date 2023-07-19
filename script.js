@@ -20,10 +20,17 @@ let min;
 let det;
 let stopInterval;
 let audio;
+let video;
 // End
 
 // klik akan memulai waktu mundur
 document.querySelector("button").addEventListener("click", () => {
+    video = document.querySelector("video");
+    video.play();
+    video.addEventListener("ended", function () {
+        video.currentTime = 0;
+        video.play();
+    });
     document.querySelector("button").style.display = "none";
     document.getElementById("showTimer").style.display = "flex";
     jam = document.querySelector("#inputJam").value;
@@ -54,6 +61,7 @@ document.querySelector("button").addEventListener("click", () => {
             document.querySelector("button").innerText = "MULAI ULANG";
             document.getElementById("stopMusic").style.top = "0%";
             clearInterval(stopInterval);
+            video.pause();
             audio = new Audio("./timeout.wav");
             audio.play();
             audio.addEventListener('ended', function () {
