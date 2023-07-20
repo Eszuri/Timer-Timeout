@@ -11,7 +11,8 @@
 </head>
 
 <body style=background-color:#525050;color:#fff>
-    <section class="fixed inset-x-0 top-[-200%] h-screen z-20 cursor-not-allowed duration-700" id="stopMusic">
+    <!-- membuat stop page  -->
+    <section class="fixed inset-x-0 top-[-200%] h-screen z-50 cursor-not-allowed duration-700" id="stopMusic">
         <span class="flex justify-center items-center w-full h-screen cursor-not-allowed"
             style="background-color: rgba(0, 0, 0,0.8);">
             <span
@@ -20,8 +21,10 @@
                 SUARA</span>
         </span>
     </section>
+    <!-- End -->
+    <!-- Page Setting -->
     <section id="settingPage"
-        class="fixed w-[90%] left-1/2  translate-x-[-50%] translate-y-[-50%] top-[-200%] duration-500 bg-slate-600 z-10 h-[90%]">
+        class="fixed w-[90%] left-1/2  translate-x-[-50%] translate-y-[-50%] top-[-200%] duration-200 bg-slate-600 z-10 h-[90%]">
         <h1 id="tutupSet"
             class="absolute text-5xl cursor-pointer active:text-red-800 text-red-500 right-5 top-3 select-none font-extrabold">
             ╳
@@ -31,12 +34,37 @@
             <p>Atur Volume</p>
             <input type="range" id="ranged" class="w-60 bg-fuchsia-600" min="0" max="1" step="0.1">
             <span id="numVol"></span>
+            <span
+                class="cursor-pointer biruNavigasi fixed bottom-5 left-1/2 translate-x-[-50%] w-[50%] rounded active:bg-blue-400 flex justify-center items-center text-center h-10"
+                id="saveSett">SIMPAN SETTING</span>
         </div>
     </section>
+    <!-- End -->
+    <!-- About Setting -->
+    <section id="aboutPage"
+        class="fixed w-[90%] left-1/2  translate-x-[-50%] translate-y-[-50%] top-[-200%] duration-200 bg-slate-600 z-10 h-[90%]">
+        <h1 id="tutupAbo"
+            class="absolute text-5xl cursor-pointer active:text-red-800 text-red-500 right-5 top-3 select-none font-extrabold">
+            ╳
+        </h1>
+        <h1 class="text-center mt-14 text-3xl">MASIH KOSONG</h1>
+        </div>
+    </section>
+    <!-- End -->
+    <!-- Halaman Utama -->
     <section
         class="w-[95%] left-1/2 translate-x-[-50%] translate-y-[-50%] bg-blue-900 rounded-md pt-5 h-full fixed top-1/2">
-        <h1 class="text-5xl font-semibold text-green-300 text-center">Timer Timeout</h1>
+        <h1 class="text-5xl font-semibold text-green-300 text-center whitespace-nowrap  max-[370px]:text-3xl">
+            Timer Timeout</h1>
         <hr class="w-[90%] mr-auto ml-auto"><br>
+        <div class="fixed right-[74px] bottom-14 h-12 w-0 flex justify-between items-center rounded-md rounded-r-none bg-black duration-300 overflow-hidden"
+            id="pageMenu">
+            <p class="hover:text-red-600 cursor-pointer m-4 text-xl" id="setting">Setting</p>
+            <p class="hover:text-red-600 cursor-pointer m-4 text-xl mr-96" id="about">About</p>
+        </div>
+        <div class="cursor-pointer fixed right-0 bottom-14 h-12 w-20 flex justify-center items-center rounded-md biruNavigasi text-2xl select-none font-bold"
+            id="menu">
+            MENU</div>
         <form class="w-full text-center duration-200">
             <div class="w-full flex justify-center flex-wrap mb-7">
                 <input type=number id=inputJam class="text-black text-2xl p-1 h-10 m-2 focus:outline-green-600 rounded"
@@ -48,7 +76,7 @@
                     class="text-black text-2xl h-10 m-2 p-1 focus:outline-green-600 rounded" min=0 max=59
                     placeholder=Detik required>
             </div>
-            <p class="text-2xl mb-2">APA YANG INGIN DI TUNGGU</p>
+            <p class="text-2xl mb-2 max-[400px]:text-lg">APA YANG INGIN DI TUNGGU</p>
             <input type="text" class="w-[90%] rounded outline-green-500 text-black p-1 mb-5 text-xl font-semibold"
                 placeholder="Example: Nggodog Wedang" id="keterangan">
             <input type=submit value="ATUR WAKTU"
@@ -77,13 +105,11 @@
                 <span
                     class="cursor-pointer biruNavigasi w-48 flex justify-center items-center rounded active:bg-blue-400 m-3 text-center h-10"
                     id="backTimer">⬅️ Atur Ulang</span>
-                <span
-                    class="cursor-pointer biruNavigasi w-48 flex justify-center items-center rounded active:bg-blue-400 m-3 text-center h-10"
-                    id="setting">Setting</span>
             </div>
         </div>
         <footer></footer>
     </section>
+    <!-- End -->
     <video src="./Black Screen 1 seconds.mp4" class="hidden" oncontextmenu="return false;"></video>
     <script src=./script.js></script>
 </body>

@@ -101,17 +101,45 @@ document.getElementById("backTimer").addEventListener("click", () => {
     }
 }); // End
 
+// buka menu / list
+let benar = true;
+document.getElementById("menu").addEventListener("click", () => {
+    if (benar) {
+        document.getElementById("pageMenu").style.width = "12rem"
+        benar = false;
+        document.getElementById("menu").style.color = "red";
+    } else {
+        document.getElementById("pageMenu").style.width = "0px"
+        benar = true;
+        document.getElementById("menu").style.color = "";
+    }
+})
 
 // membuka setting
 document.getElementById("setting").addEventListener("click", () => {
-    document.getElementById("settingPage").style.top = "50%"
+    document.getElementById("settingPage").style.top = "50%";
+    document.getElementById("numVol").innerText = document.getElementById("ranged").value;
+    document.getElementById("menu").style.right = "-500%";
+    document.getElementById("pageMenu").style.right = "-500%";
+})
+// membuka about
+document.getElementById("about").addEventListener("click", () => {
+    document.getElementById("aboutPage").style.top = "50%";
+    document.getElementById("menu").style.right = "-500%";
+    document.getElementById("pageMenu").style.right = "-500%";
 })
 
-// atur volume
+// text atur volume
 document.getElementById("ranged").addEventListener("input", () => {
     document.getElementById("numVol").innerText = document.getElementById("ranged").value;
-    localStorage.setItem('rangeValue', document.getElementById("ranged").value);
 })
+
+// save setting
+document.getElementById("saveSett").addEventListener("click", () => {
+    localStorage.setItem('rangeValue', document.getElementById("ranged").value);
+    alert("Tersimpan");
+})
+
 
 // load local storage
 window.addEventListener('load', function () {
@@ -123,7 +151,15 @@ window.addEventListener('load', function () {
 
 // tutup setting
 document.getElementById("tutupSet").addEventListener("click", () => {
-    document.getElementById("settingPage").style.top = "-200%"
+    document.getElementById("settingPage").style.top = "-200%";
+    document.getElementById("menu").style.right = "";
+    document.getElementById("pageMenu").style.right = "";
+})
+// tutup about
+document.getElementById("tutupAbo").addEventListener("click", () => {
+    document.getElementById("aboutPage").style.top = "-200%";
+    document.getElementById("menu").style.right = "";
+    document.getElementById("pageMenu").style.right = "";
 })
 
 // mematikan suara saat timeout
