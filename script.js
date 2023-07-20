@@ -15,7 +15,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
         alert("Jangan 0 Semua, paling minimal 1 detik");
         document.querySelector("form").style.marginLeft = "0%";
         document.getElementById("timer").style.marginLeft = "200%";
-        document.querySelector("button").style.display = "none";
     }
 }); // End
 
@@ -84,11 +83,22 @@ document.querySelector("button").addEventListener("click", () => {
     }
 }); // End
 
-// klik akan mengatur ualng waktu
+// klik akan mengatur ulang waktu
 document.getElementById("backTimer").addEventListener("click", () => {
-    clearInterval(stopInterval);
-    document.getElementById("timer").style.marginLeft = "200%";
-    document.querySelector("form").style.marginLeft = "0%";
+    if (document.getElementById("showTimer").style.display === "flex") {
+        const konfirmasi = window.confirm("waktu mundur sedang berjalan, Antum yakin akan atur ulang waktu.")
+        if (konfirmasi) {
+            clearInterval(stopInterval);
+            document.getElementById("timer").style.marginLeft = "200%";
+            document.querySelector("form").style.marginLeft = "0%";
+        } else {
+            document.getElementById("timer").style.marginLeft = "0%";
+            document.querySelector("form").style.marginLeft = "-200%";
+        }
+    } else {
+        document.getElementById("timer").style.marginLeft = "200%";
+        document.querySelector("form").style.marginLeft = "0%";
+    }
 }); // End
 
 
@@ -103,6 +113,7 @@ document.getElementById("ranged").addEventListener("input", () => {
     localStorage.setItem('rangeValue', document.getElementById("ranged").value);
 })
 
+// load local storage
 window.addEventListener('load', function () {
     var rangeValue = localStorage.getItem('rangeValue');
     if (rangeValue) {
