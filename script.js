@@ -122,6 +122,7 @@ document.getElementById("setting").addEventListener("click", () => {
     document.getElementById("menu").style.right = "-500%";
     document.getElementById("pageMenu").style.right = "-500%";
     document.getElementById("inputColor").value = localStorage.getItem('colorValue');
+    document.getElementById("inputColor2").value = localStorage.getItem('colorValue2');
 })
 // membuka about
 document.getElementById("about").addEventListener("click", () => {
@@ -139,14 +140,17 @@ document.getElementById("ranged").addEventListener("input", () => {
 document.getElementById("saveSett").addEventListener("click", () => {
     localStorage.setItem('rangeValue', document.getElementById("ranged").value);
     localStorage.setItem('colorValue', document.getElementById("inputColor").value);
+    localStorage.setItem('colorValue2', document.getElementById("inputColor2").value);
     alert("Tersimpan");
 })
 
 // load local storage
-window.addEventListener('load', function () {
-    document.getElementById("ranged").value = localStorage.getItem('rangeValue');
-    document.body.style.backgroundColor = localStorage.getItem('colorValue');
-});
+// window.addEventListener('load', function () {
+document.body.style.backgroundColor = localStorage.getItem('colorValue');
+document.getElementById("bgMain").style.backgroundColor = localStorage.getItem('colorValue2');
+document.querySelector("footer").style.backgroundColor = localStorage.getItem('colorValue2');
+document.getElementById("ranged").value = localStorage.getItem('rangeValue');
+// });
 
 // tutup setting
 document.getElementById("tutupSet").addEventListener("click", () => {
@@ -169,11 +173,16 @@ document.getElementById("buttonStopMusic").addEventListener("click", () => {
     document.getElementById("showTimer").style.display = "none";
 })
 
-//
+// preview backgound body
 document.getElementById("inputColor").addEventListener("input", () => {
     document.body.style.backgroundColor = document.getElementById("inputColor").value;
 })
 
+// preview backgound content halaman
+document.getElementById("inputColor2").addEventListener("input", () => {
+    document.getElementById("bgMain").style.backgroundColor = document.getElementById("inputColor2").value;
+    document.querySelector("footer").style.backgroundColor = document.getElementById("inputColor2").value;
+})
 // style footer
 const foo = document.querySelector("footer");
 foo.innerText = "Created By Eszuri";
