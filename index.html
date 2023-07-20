@@ -57,12 +57,12 @@
         <h1 class="text-5xl font-semibold text-green-300 text-center whitespace-nowrap  max-[370px]:text-3xl">
             Timer Timeout</h1>
         <hr class="w-[90%] mr-auto ml-auto"><br>
-        <div class="fixed right-[74px] bottom-14 h-12 w-0 flex justify-between items-center rounded-md rounded-r-none bg-black duration-300 overflow-hidden"
+        <div class="z-[2] fixed right-[74px] bottom-14 h-12 w-0 flex justify-between items-center rounded-md rounded-r-none bg-black duration-300 overflow-hidden"
             id="pageMenu">
             <p class="hover:text-red-600 cursor-pointer m-4 text-xl" id="setting">Setting</p>
             <p class="hover:text-red-600 cursor-pointer m-4 text-xl mr-96" id="about">About</p>
         </div>
-        <div class="cursor-pointer fixed right-0 bottom-14 h-12 w-20 flex justify-center items-center rounded-md biruNavigasi text-2xl select-none font-bold"
+        <div class="z-[3] cursor-pointer fixed right-0 bottom-14 h-12 w-20 flex justify-center items-center rounded-md biruNavigasi text-2xl select-none font-bold"
             id="menu">
             MENU</div>
         <form class="w-full text-center duration-200">
@@ -101,11 +101,9 @@
             <div class="w-full text-center mt-5">
                 <button class="w-[40%] h-20 biruNavigasi rounded text-2xl">MULAI</button>
             </div>
-            <div class="flex justify-center">
-                <span
-                    class="cursor-pointer biruNavigasi w-48 flex justify-center items-center rounded active:bg-blue-400 m-3 text-center h-10"
-                    id="backTimer">⬅️ Atur Ulang</span>
-            </div>
+            <span
+                class="fixed z-0 bottom-14 cursor-pointer biruNavigasi w-48 h-12 flex justify-center items-center rounded active:bg-blue-400 text-2xl text-center"
+                id="backTimer">⬅️ Atur Ulang</span>
         </div>
         <footer></footer>
     </section>
