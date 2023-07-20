@@ -902,6 +902,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .block {
   display: block;
 }
@@ -1452,6 +1456,14 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.accent-green-600 {
+  accent-color: #16a34a;
+}
+
+.accent-green-500 {
+  accent-color: #22c55e;
 }
 
 .opacity-0 {

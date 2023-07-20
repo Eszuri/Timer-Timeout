@@ -121,6 +121,7 @@ document.getElementById("setting").addEventListener("click", () => {
     document.getElementById("numVol").innerText = document.getElementById("ranged").value;
     document.getElementById("menu").style.right = "-500%";
     document.getElementById("pageMenu").style.right = "-500%";
+    document.getElementById("inputColor").value = localStorage.getItem('colorValue');
 })
 // membuka about
 document.getElementById("about").addEventListener("click", () => {
@@ -137,16 +138,14 @@ document.getElementById("ranged").addEventListener("input", () => {
 // save setting
 document.getElementById("saveSett").addEventListener("click", () => {
     localStorage.setItem('rangeValue', document.getElementById("ranged").value);
+    localStorage.setItem('colorValue', document.getElementById("inputColor").value);
     alert("Tersimpan");
 })
 
-
 // load local storage
 window.addEventListener('load', function () {
-    var rangeValue = localStorage.getItem('rangeValue');
-    if (rangeValue) {
-        document.getElementById("ranged").value = rangeValue;
-    }
+    document.getElementById("ranged").value = localStorage.getItem('rangeValue');
+    document.body.style.backgroundColor = localStorage.getItem('colorValue');
 });
 
 // tutup setting
@@ -170,6 +169,11 @@ document.getElementById("buttonStopMusic").addEventListener("click", () => {
     document.getElementById("showTimer").style.display = "none";
 })
 
+//
+document.getElementById("inputColor").addEventListener("input", () => {
+    document.body.style.backgroundColor = document.getElementById("inputColor").value;
+})
+
 // style footer
 const foo = document.querySelector("footer");
 foo.innerText = "Created By Eszuri";
@@ -183,3 +187,6 @@ foo.style.transform = "translateX(-50%)";
 foo.style.borderTop = "2px solid yellow";
 foo.style.width = "95%";
 // End
+
+// style lainnya
+document.body.style.color = "white";
