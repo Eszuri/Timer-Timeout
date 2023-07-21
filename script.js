@@ -185,17 +185,8 @@ document.getElementById("inputColor2").addEventListener("input", () => {
 });
 
 // membuat autocomplete input jam
-for (let i = 0; i <= 24; i++) {
-    const option = document.createElement("option"); option.value = i; document.getElementById("inputJamlist").appendChild(option);
-}
 // membuat autocomplete input menit
-for (let i = 0; i <= 59; i++) {
-    const option = document.createElement("option"); option.value = i; document.getElementById("inputMenitlist").appendChild(option);
-}
 // membuat autocomplete input detik
-for (let i = 0; i <= 59; i++) {
-    const option = document.createElement("option"); option.value = i; document.getElementById("inputDetiklist").appendChild(option);
-}
 
 // style footer
 const foo = document.querySelector("footer");
