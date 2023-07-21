@@ -185,8 +185,72 @@ document.getElementById("inputColor2").addEventListener("input", () => {
 });
 
 // membuat autocomplete input jam
+for (let i = 0; i <= 24; i++) {
+    let paragf = document.createElement('p');
+    paragf.style.borderBottom = "2px solid black";
+    paragf.style.fontSize = "25px";
+    paragf.style.fontWeight = "600";
+    paragf.style.cursor = "pointer";
+    paragf.style.backgroundColor = "rgb(46, 46, 46)";
+    paragf.style.marginBottom = "3px";
+    paragf.style.paddingBottom = "5px";
+    paragf.style.paddingTop = "5px";
+    paragf.style.borderRadius = "5px";
+    paragf.innerHTML = i;
+    document.getElementById("inputJamList").appendChild(paragf);
+    paragf.addEventListener('click', function (e) {
+        document.getElementById('inputJam').value = paragf.innerHTML;
+        document.getElementById('inputJamList').style.height = "0rem";
+    });
+    document.getElementById("inputJam").addEventListener('focus', function (e) {
+        document.getElementById('inputJamList').style.height = "15rem";
+    });
+}
 // membuat autocomplete input menit
+for (let i = 0; i <= 59; i++) {
+    let paragf = document.createElement('p');
+    paragf.style.borderBottom = "2px solid black";
+    paragf.style.fontSize = "25px";
+    paragf.style.fontWeight = "600";
+    paragf.style.cursor = "pointer";
+    paragf.style.backgroundColor = "rgb(46, 46, 46)";
+    paragf.style.marginBottom = "3px";
+    paragf.style.paddingBottom = "5px";
+    paragf.style.paddingTop = "5px";
+    paragf.style.borderRadius = "5px";
+    paragf.innerHTML = i;
+    document.getElementById("inputMenitList").appendChild(paragf);
+    paragf.addEventListener('click', function (e) {
+        document.getElementById('inputMenit').value = paragf.innerHTML;
+        document.getElementById('inputMenitList').style.height = "0rem";
+    });
+    document.getElementById("inputMenit").addEventListener('focus', function (e) {
+        document.getElementById('inputMenitList').style.height = "15rem";
+    });
+}
 // membuat autocomplete input detik
+for (let i = 0; i <= 59; i++) {
+    let paragf = document.createElement('p');
+    paragf.style.borderBottom = "2px solid black";
+    paragf.style.fontSize = "25px";
+    paragf.style.fontWeight = "600";
+    paragf.style.cursor = "pointer";
+    paragf.style.backgroundColor = "rgb(46, 46, 46)";
+    paragf.style.marginBottom = "3px";
+    paragf.style.paddingBottom = "5px";
+    paragf.style.paddingTop = "5px";
+    paragf.style.borderRadius = "5px";
+    paragf.innerHTML = i;
+    document.getElementById("inputDetikList").appendChild(paragf);
+    paragf.addEventListener('click', function (e) {
+        document.getElementById('inputDetik').value = paragf.innerHTML;
+        document.getElementById('inputDetikList').style.height = "0rem";
+    });
+    document.getElementById("inputDetik").addEventListener('focus', function (e) {
+        document.getElementById('inputDetikList').style.height = "15rem";
+    });
+}
+
 
 // style footer
 const foo = document.querySelector("footer");
