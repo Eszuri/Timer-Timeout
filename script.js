@@ -113,7 +113,7 @@ document.getElementById("menu").addEventListener("click", () => {
         benar = true;
         document.getElementById("menu").style.color = "";
     }
-})
+});
 
 // membuka setting
 document.getElementById("setting").addEventListener("click", () => {
@@ -123,18 +123,18 @@ document.getElementById("setting").addEventListener("click", () => {
     document.getElementById("pageMenu").style.right = "-500%";
     document.getElementById("inputColor").value = localStorage.getItem('colorValue');
     document.getElementById("inputColor2").value = localStorage.getItem('colorValue2');
-})
+});
 // membuka about
 document.getElementById("about").addEventListener("click", () => {
     document.getElementById("aboutPage").style.top = "50%";
     document.getElementById("menu").style.right = "-500%";
     document.getElementById("pageMenu").style.right = "-500%";
-})
+});
 
 // text atur volume
 document.getElementById("ranged").addEventListener("input", () => {
     document.getElementById("numVol").innerText = document.getElementById("ranged").value;
-})
+});
 
 // save setting
 document.getElementById("saveSett").addEventListener("click", () => {
@@ -142,7 +142,7 @@ document.getElementById("saveSett").addEventListener("click", () => {
     localStorage.setItem('colorValue', document.getElementById("inputColor").value);
     localStorage.setItem('colorValue2', document.getElementById("inputColor2").value);
     alert("Tersimpan");
-})
+});
 
 // load local storage
 // window.addEventListener('load', function () {
@@ -157,13 +157,13 @@ document.getElementById("tutupSet").addEventListener("click", () => {
     document.getElementById("settingPage").style.top = "-200%";
     document.getElementById("menu").style.right = "";
     document.getElementById("pageMenu").style.right = "";
-})
+});
 // tutup about
 document.getElementById("tutupAbo").addEventListener("click", () => {
     document.getElementById("aboutPage").style.top = "-200%";
     document.getElementById("menu").style.right = "";
     document.getElementById("pageMenu").style.right = "";
-})
+});
 
 // mematikan suara saat timeout
 document.getElementById("buttonStopMusic").addEventListener("click", () => {
@@ -171,18 +171,32 @@ document.getElementById("buttonStopMusic").addEventListener("click", () => {
     audio.currentTime = 0;
     document.getElementById("stopMusic").style.top = "-200%";
     document.getElementById("showTimer").style.display = "none";
-})
+});
 
 // preview backgound body
 document.getElementById("inputColor").addEventListener("input", () => {
     document.body.style.backgroundColor = document.getElementById("inputColor").value;
-})
+});
 
 // preview backgound content halaman
 document.getElementById("inputColor2").addEventListener("input", () => {
     document.getElementById("bgMain").style.backgroundColor = document.getElementById("inputColor2").value;
     document.querySelector("footer").style.backgroundColor = document.getElementById("inputColor2").value;
-})
+});
+
+// membuat autocomplete input jam
+for (let i = 0; i <= 24; i++) {
+    const option = document.createElement("option"); option.value = i; document.getElementById("inputJamlist").appendChild(option);
+}
+// membuat autocomplete input menit
+for (let i = 0; i <= 59; i++) {
+    const option = document.createElement("option"); option.value = i; document.getElementById("inputMenitlist").appendChild(option);
+}
+// membuat autocomplete input detik
+for (let i = 0; i <= 59; i++) {
+    const option = document.createElement("option"); option.value = i; document.getElementById("inputDetiklist").appendChild(option);
+}
+
 // style footer
 const foo = document.querySelector("footer");
 foo.innerText = "Created By Eszuri";

@@ -72,14 +72,15 @@
             MENU</div>
         <form class="w-full text-center duration-200">
             <div class="w-full flex justify-center flex-wrap mb-7">
-                <input type=number id=inputJam class="text-black text-2xl p-1 h-10 m-2 focus:outline-green-600 rounded"
-                    min=0 max=24 placeholder=Jam required>
-                <input type=number id=inputMenit
+                <input type=number list="inputJamlist" id=inputJam
+                    class="text-black text-2xl p-1 h-10 m-2 focus:outline-green-600 rounded" min=0 max=24
+                    placeholder=Jam required><datalist id="inputJamlist" class="block"></datalist>
+                <input type=number id=inputMenit list="inputMenitlist"
                     class="text-black text-2xl h-10 p-1 m-2 focus:outline-green-600 rounded" min=0 max=59
-                    placeholder=Menit required>
-                <input type=number id=inputDetik
+                    placeholder=Menit required><datalist id="inputMenitlist"></datalist>
+                <input type=number id=inputDetik list="inputDetiklist"
                     class="text-black text-2xl h-10 m-2 p-1 focus:outline-green-600 rounded" min=0 max=59
-                    placeholder=Detik required>
+                    placeholder=Detik required><datalist id="inputDetiklist"></datalist>
             </div>
             <p class="text-2xl mb-2 max-[400px]:text-lg">APA YANG INGIN DI TUNGGU</p>
             <input type="text" class="w-[90%] rounded outline-green-500 text-black p-1 mb-5 text-xl font-semibold"
